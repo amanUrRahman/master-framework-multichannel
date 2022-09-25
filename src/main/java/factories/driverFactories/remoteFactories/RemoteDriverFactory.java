@@ -1,11 +1,8 @@
-package factories;
+package factories.driverFactories.remoteFactories;
 
 import enums.BrowserType;
 import enums.RemoteRunMode;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 public final class RemoteDriverFactory {
 
@@ -13,14 +10,13 @@ public final class RemoteDriverFactory {
 
     private RemoteDriverFactory(){}
 
-    public static WebDriver getDriver(){
-        RemoteRunMode remoteRunMode = ConfigFactory.getFrameworkConfig().remoteRunMode();
+    public static WebDriver getDriver(RemoteRunMode remoteRunMode, BrowserType browserType){
         if (remoteRunMode == RemoteRunMode.SELENIUMGRID){
-            
+            driver = SeleniumGridFactory.getDriver(browserType);
         } else if (remoteRunMode == RemoteRunMode.SELENOID) {
-            
+            driver = SelenoidGridFactory.getDriver(browserType);
         } else if (remoteRunMode == RemoteRunMode.BROWSERSTACK) {
-            
+            driver = BrowserStackFactory.getDriver(browserType);
         }
         return driver;
     }

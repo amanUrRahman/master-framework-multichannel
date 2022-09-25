@@ -1,4 +1,4 @@
-package factories;
+package factories.driverFactories.localFactories;
 
 import enums.BrowserType;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -12,11 +12,11 @@ public final class LocalDriverFactory {
 
     private LocalDriverFactory(){}
 
-    public static WebDriver getDriver(){
-        if (ConfigFactory.getFrameworkConfig().browser() == BrowserType.CHROME){
+    public static WebDriver getDriver(BrowserType browserType){
+        if (browserType == BrowserType.CHROME){
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
-        } else if (ConfigFactory.getFrameworkConfig().browser() == BrowserType.FIREFOX) {
+        } else if (browserType == BrowserType.FIREFOX) {
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
         }

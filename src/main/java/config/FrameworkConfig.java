@@ -18,4 +18,15 @@ public interface FrameworkConfig extends Config {
 
     @DefaultValue("SELENIUMGRID")
     RemoteRunMode remoteRunMode();
+
+    String seleniumGridURL();
+
+    String selenoidURL();
+
+
+    //browserstack setup
+    String browserstackUsername();
+    String browserstackKey();
+    @DefaultValue("https://${browserstackUsername}:${browserstackKey}@hub-cloud.browserstack.com/wd/hub")
+    String browserstackURL();
 }

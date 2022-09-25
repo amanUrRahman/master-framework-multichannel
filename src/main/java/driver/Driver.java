@@ -2,8 +2,8 @@ package driver;
 
 import enums.RunMode;
 import factories.ConfigFactory;
-import factories.LocalDriverFactory;
-import factories.RemoteDriverFactory;
+import factories.driverFactories.localFactories.LocalDriverFactory;
+import factories.driverFactories.remoteFactories.RemoteDriverFactory;
 import org.openqa.selenium.WebDriver;
 
 import java.util.Objects;
@@ -15,9 +15,9 @@ public class Driver {
 
     public static void initDriver(){
         if (ConfigFactory.getFrameworkConfig().runMode() == RunMode.LOCAL){
-            driver = LocalDriverFactory.getDriver();
+            driver = LocalDriverFactory.getDriver(ConfigFactory.getFrameworkConfig().browser());
         } else if (ConfigFactory.getFrameworkConfig().runMode() == RunMode.REMOTE) {
-            driver = RemoteDriverFactory.getDriver();
+            driver = RemoteDriverFactory.getDriver(ConfigFactory.getFrameworkConfig().remoteRunMode(), ConfigFactory.getFrameworkConfig().browser());
         }
 
         driver.get(ConfigFactory.getFrameworkConfig().URL());
