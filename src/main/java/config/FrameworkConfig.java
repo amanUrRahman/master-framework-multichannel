@@ -23,10 +23,12 @@ public interface FrameworkConfig extends Config {
 
     String selenoidURL();
 
+    @DefaultValue("LOCAL")
+    RunMode runMobileMode();
 
-    //browserstack setup
-    String browserstackUsername();
-    String browserstackKey();
-    @DefaultValue("https://${browserstackUsername}:${browserstackKey}@hub-cloud.browserstack.com/wd/hub")
-    String browserstackURL();
+    @DefaultValue("BROWSERSTACK")
+    RemoteRunMode remoteMobileRunMode();
+
+    String localAppiumURL();
+
 }

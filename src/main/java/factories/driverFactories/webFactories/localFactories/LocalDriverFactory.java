@@ -1,4 +1,4 @@
-package factories.driverFactories.localFactories;
+package factories.driverFactories.webFactories.localFactories;
 
 import enums.BrowserType;
 import io.github.bonigarcia.wdm.WebDriverManager;

@@ -1,4 +1,4 @@
-package factories.driverFactories.remoteFactories;
+package factories.driverFactories.webFactories.remoteFactories;
 
 import enums.BrowserType;
 import enums.RemoteRunMode;

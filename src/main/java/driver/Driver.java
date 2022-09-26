@@ -2,8 +2,8 @@ package driver;
 
 import enums.RunMode;
 import factories.ConfigFactory;
-import factories.driverFactories.localFactories.LocalDriverFactory;
-import factories.driverFactories.remoteFactories.RemoteDriverFactory;
+import factories.driverFactories.webFactories.localFactories.LocalDriverFactory;
+import factories.driverFactories.webFactories.remoteFactories.RemoteDriverFactory;
 import org.openqa.selenium.WebDriver;
 
 import java.util.Objects;
